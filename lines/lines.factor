@@ -64,6 +64,8 @@ ALIAS: y second
 !        [ [ second ] dip second-in-bounds? ]
 !    } 2&& ;
 
+! calc-line-slope will fail if x2-x1 = 0, but it should be possible.
+
 : calc-line-slope ( point1 point2 -- slope ) v- first2 swap / ;
 : calc-y ( slope x point -- y ) first2 [ - * ] dip + ;
 : calc-x ( slope y point -- x ) first2 swap [ - swap / ] dip + ;
