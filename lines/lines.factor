@@ -168,6 +168,9 @@ SYMBOL: elt
         [ elt get swap @ elt set ] each elt get
     ] with-variable ; inline
 
+! :: each2* ( seq quot: ( prev next -- next' ) -- )
+!    seq unclip-slice :> elt! quot '[ elt @ elt! ] each ; inline
+
 :: (make-pair) ( prev next min max -- next' )
     prev next min max
     prev next [ first y min max between<=> ] bi@ 2array
