@@ -67,6 +67,7 @@ ALIAS: y second
 : calc-line-slope ( point1 point2 -- slope ) v- first2 swap / ;
 : calc-y ( slope x point -- y ) first2 [ - * ] dip + ;
 : calc-x ( slope y point -- x ) first2 swap [ - swap / ] dip + ;
+! : calc-x ( slope point y -- x ) [ first2 ] dip swap - rot / + ;
 : y-at ( x point1 point2 -- y ) dupd calc-line-slope -rot calc-y ;
 : last2 ( seq -- penultimate ultimate ) 2 tail* first2 ;
 
